@@ -9,24 +9,30 @@ let noCount = 0;
 
 const scenes = [
   {
-    msg: "Hey… I made something for you 💕",
+    msg: "Hey… I made this for you 💕",
     gif: "https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif"
   },
   {
-    msg: "This is just a small surprise for you 🥺",
+    msg: "Just a small surprise 🥺",
     gif: "https://media.giphy.com/media/l4FGuhL4U2WyjdkaY/giphy.gif"
   },
   {
-    msg: "Because you make my days brighter 🌸",
+    msg: "Because you mean a lot to me 🌸",
     gif: "https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif"
   },
   {
-    msg: "So… one important question 💖",
-    gif: "https://media.giphy.com/media/8vQSQ3cNXuDGo/giphy.gif",
+    msg: "So… I want to ask you something 💖",
+    gif: "https://media.giphy.com/media/8vQSQ3cNXuDGo/giphy.gif"
+  },
+  {
+    // 💘 EXACT VALENTINE MOMENT
+    msg: "Will you be my Valentine? 💝",
+    gif: "https://media.giphy.com/media/9Y6n9TR7U07ew/giphy.gif", 
+    // Mochi Peach Cat + Gama kissing style
     question: true
   },
   {
-    msg: "YAYYYY!! 💖💖 I knew it 😭✨",
+    msg: "YAYYYY!! 😭💖💖",
     gif: "https://media.giphy.com/media/26xBwdIuRJiAIqHwA/giphy.gif"
   }
 ];
@@ -54,23 +60,16 @@ yesBtn.onclick = () => {
   noBtn.classList.add("hidden");
 };
 
+// 😈 No button logic
 noBtn.onmouseover = () => {
   noCount++;
 
-  // No button bhaagna
   const x = Math.random() * 200 - 100;
   const y = Math.random() * 200 - 100;
-  noBtn.style.transform = `translate(${x}px, ${y}px)`;
+  noBtn.style.transform = `translate(${x}px, ${y}px) scale(${Math.max(0.4, 1 - noCount * 0.1)})`;
 
-  // Har baar No chhota
-  let scaleNo = Math.max(0.4, 1 - noCount * 0.1);
-  noBtn.style.transform += ` scale(${scaleNo})`;
+  yesBtn.style.transform = `scale(${1 + noCount * 0.15})`;
 
-  // Yes button bada hota jaye
-  let scaleYes = 1 + noCount * 0.15;
-  yesBtn.style.transform = `scale(${scaleYes})`;
-
-  // 6–7 tries ke baad No practically useless 😈
   if (noCount >= 6) {
     noBtn.innerText = "🙈";
     noBtn.style.opacity = "0.4";
