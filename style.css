@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Comic Sans MS', cursive;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffd1e8, #fff0f6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* floating stickers */
+.sticker {
+  position: absolute;
+  width: 120px;
+  opacity: 0.9;
+  animation: float 4s ease-in-out infinite;
+}
+
+.sticker.left {
+  top: 20px;
+  left: 20px;
+}
+
+.sticker.right {
+  bottom: 20px;
+  right: 20px;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+/* main card */
+.card {
+  background: white;
+  padding: 28px 24px;
+  border-radius: 30px;
+  width: 90%;
+  max-width: 430px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+  z-index: 2;
+}
+
+.main-gif {
+  width: 220px;
+  margin-bottom: 15px;
+}
+
+h1 {
+  font-size: 20px;
+  color: #ff4d88;
+  min-height: 70px;
+}
+
+/* buttons */
+.buttons {
+  margin-top: 20px;
+}
+
+button {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 6px;
+  transition: all 0.3s ease;
+}
+
+#nextBtn {
+  background: #ff85b3;
+  color: white;
+}
+
+.yes {
+  background: #ff4d88;
+  color: white;
+}
+
+.no {
+  background: #ffd6e5;
+  position: relative;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.hidden {
+  display: none;
+}
+
+/* desktop feel */
+@media (min-width: 768px) {
+  .card {
+    max-width: 460px;
+  }
+  h1 {
+    font-size: 22px;
+  }
+  }
